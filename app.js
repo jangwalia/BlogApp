@@ -23,7 +23,8 @@ app.use((req,res,next)=>{
     next();
 })
 //DATABASE SETUP
-mongoose.connect('mongodb://localhost/JBlogs', {useUnifiedTopology: true,  useNewUrlParser: true });
+// mongoose.connect('mongodb://localhost/JBlogs', {useUnifiedTopology: true,  useNewUrlParser: true });
+mongoose.connect('mongodb+srv://jangiwalia:Bibufateh1@cluster0.3r8va.mongodb.net/JBlogs?retryWrites=true&w=majority');
 //CREATE SCHEMA
 const blogSchema = new mongoose.Schema({
     Title : String,
