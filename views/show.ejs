@@ -1,0 +1,24 @@
+<%- include('partials/header') -%>
+    <div class="container showpage">
+        <div class="card mb-3">
+            <div class="row no-gutters">
+              <div class="col-md-6">
+                <img src="<%= blog.Image %>" class="card-img" alt="photo">
+              </div>
+              <div class="col-md-6">
+                <div class="card-body">
+                  <h5 class="card-title"><%= blog.Title %></h5>
+                  <p class="card-text"><%= blog.Body %>.</p>
+                  <a href="/blogs/<%= blog._id %>/edit" class="btn btn-warning">Edit</a>
+                  <form action="/blogs/<%= blog._id %>?_method=Delete" id="delete" method="POST">
+                    <button class="btn btn-danger">Delete</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+
+    </div>
+        
+    
+<%- include('partials/footer') -%>

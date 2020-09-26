@@ -1,0 +1,35 @@
+h1{
+    text-align: center;
+    margin-top: 80px;
+}
+#blogs{
+    margin:100px auto;
+}
+image{
+    width: 100%;
+    height:300px;
+}
+.newForm{
+    width:500px;
+    margin-top: 100px;
+}
+.showpage{
+    margin-top: 200px;
+}
+.card{
+    border: none;
+}
+#delete{
+    display: inline;
+}
+#logo{
+    background:url('https://images.unsplash.com/photo-1488998427799-e3362cec87c3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80');
+    color: black;
+    text-align: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+.alert{
+    margin-top: 100px;
+}

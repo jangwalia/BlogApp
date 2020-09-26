@@ -1,0 +1,36 @@
+<%- include('partials/header') -%>
+<div class="jumbotron jumbotron-fluid" id="logo">
+  <div class="container">
+    <h1 class="display-4">Welcome to My blog Page...</h1>
+    <p class="lead">Express Yourself and Share Your Passions. ....</p>
+  </div>
+</div>
+
+<div class="container">
+          <div class="row d-flex flex-wrap" id= "blogs">
+            <% blogs.forEach((blog)=>{ %>
+              <div class="col-6 ">
+                  <div class="card">
+                      <img src="<%= blog.Image %>" class="card-img-top" alt="image">
+                      <div class="card-body">
+                        <h5 class="card-title"><%= blog.Title %></h5>
+                        <p class="card-text"><%= blog.Body.substring(0, 50) %>...</p>
+                        <a href="/blogs/<%= blog._id %>">Read More</a>
+                        <p class="card-text"><em><%= blog.Created.toLocaleDateString() %></em></p>
+                        
+                      </div>
+                    </div>
+              </div>
+              <% }) %>
+
+              </div>
+          </div>
+        
+            
+
+    
+        
+
+
+
+<%- include('partials/footer') -%>

@@ -1,0 +1,23 @@
+<%- include('partials/header') -%>
+<h1>Create New Blog....</h1>
+<div class="container newForm">
+    <form action = "/blogs" method = "POST">
+        <div class="form-group">
+          <label for="Title">Title</label>
+          <input type="text" class="form-control" id="Title" name = "blog[Title]" >
+          
+        </div>
+        <div class="form-group">
+            <label for="Image">Enter Image</label>
+            <input type="text" class="form-control" id="Image" name = "blog[Image]" >
+            
+          </div>
+          <div class="form-group">
+            <label for="Body">Your Blog</label>
+            <textarea class="form-control" id="Body" name = "blog[Body]" rows="3"></textarea>
+            
+          </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+</div>
+<%- include('partials/footer') -%>
