@@ -1,3 +1,4 @@
+var port            = process.env.PORT || 3000;
 var express         = require('express');
 var app             = express();
 var flash           = require('connect-flash');
@@ -117,6 +118,6 @@ app.delete('/blogs/:id',(req,res)=>{
 })
 
 //SERVER CODE
-app.listen(3000,()=>{
+app.listen(port,()=>{
     console.log('The server is running');
 })
