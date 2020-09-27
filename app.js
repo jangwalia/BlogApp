@@ -27,7 +27,8 @@ app.use((req,res,next)=>{
 const MONGODB_URI = 'mongodb+srv://jangiwalia:Bibufateh1@cluster0.3r8va.mongodb.net/JBlogs?retryWrites=true&w=majority' ;
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/JBlogs',{
     useNewUrlParser: true,
-    useCreateIndex: true
+    useCreateIndex: true,
+    useUnifiedTopology: true
 }).then(()=>{
     console.log('connected to db');
 }).catch(err=>{
