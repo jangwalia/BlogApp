@@ -1,5 +1,6 @@
-var port            = process.env.PORT || 3000;
+
 var express         = require('express');
+var port            = process.env.PORT || 3000;
 var app             = express();
 var flash           = require('connect-flash');
 var mongoose        = require('mongoose');
@@ -24,7 +25,7 @@ app.use((req,res,next)=>{
 })
 //DATABASE SETUP
 // mongoose.connect('mongodb://localhost/JBlogs', {useUnifiedTopology: true,  useNewUrlParser: true });
-const MONGODB_URI = 'mongodb+srv://jangiwalia:Bibufateh1@cluster0.3r8va.mongodb.net/JBlogs?retryWrites=true&w=majority' ;
+//const MONGODB_URI = 'mongodb+srv://jangiwalia:Bibufateh1@cluster0.3r8va.mongodb.net/JBlogs?retryWrites=true&w=majority' ;
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/JBlogs',{
     useNewUrlParser: true,
     useCreateIndex: true,
