@@ -28,6 +28,10 @@ const MONGODB_URI = 'mongodb+srv://jangiwalia:Bibufateh1@cluster0.3r8va.mongodb.
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/JBlogs',{
     useNewUrlParser: true,
     useCreateIndex: true
+}).then(()=>{
+    console.log('connected to db');
+}).catch(err=>{
+    console.log(err.message);
 });
 //CREATE SCHEMA
 const blogSchema = new mongoose.Schema({
