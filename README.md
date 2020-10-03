@@ -1,7 +1,7 @@
 ## Blog App
  # Simple blog app where i can create , Edit and delete blogs.
 
-## Authorization
+## Authentication
     - Install Following packages
         - npm install passport passport-local passport-local-mongoose express-session --save
     - Import these packages in app.js
