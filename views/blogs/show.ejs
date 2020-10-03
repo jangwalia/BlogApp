@@ -10,10 +10,13 @@
                   <h5 class="card-title"><%= blog.Title %></h5>
                   <p class="card-text"><%= blog.Body %>.</p>
                   <p class="card-text">Created By..<%= blog.Author.username %>.</p>
-                  <a href="/blogs/<%= blog._id %>/edit" class="btn btn-warning">Edit</a>
-                  <form action="/blogs/<%= blog._id %>?_method=Delete" id="delete" method="POST">
-                    <button class="btn btn-danger">Delete</button>
-                  </form>
+                  <% if(currentUser && blog.Author.id.equals(currentUser._id)) { %> 
+                    <a href="/blogs/<%= blog._id %>/edit" class="btn btn-warning">Edit</a>
+                    <form action="/blogs/<%= blog._id %>?_method=Delete" id="delete" method="POST">
+                      <button class="btn btn-danger">Delete</button>
+                    </form>
+                  <% } %> 
+                  
                 </div>
               </div>
             </div>

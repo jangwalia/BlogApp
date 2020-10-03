@@ -21,7 +21,7 @@ router.get('/blogs/new',Isloggedin,(req,res)=>{
 })
 // CREATE ROUTE TO CREATE NEW BLOG
 router.post('/blogs',Isloggedin,(req,res)=>{
-     var title = req.body.title;
+    var title = req.body.title;
     var image = req.body.image;
     var body = req.body.body;
     var author = {
@@ -54,14 +54,14 @@ router.get('/blogs/:id',(req,res)=>{
 
 
 //EDIT ROUTE ***SHOW EDIT FORM********
-router.get('/blogs/:id/edit',Isloggedin,(req,res)=>{
+router.get('/blogs/:id/edit',isAuthorized,(req,res)=>{
     Blog.findById(req.params.id,(err,editBlog)=>{
         res.render('blogs/edit',{blog:editBlog});
     })
 })
 
 //UPDATE ROUTE TO SHOW PUT ROUTE
-router.put('/blogs/:id',Isloggedin,(req,res)=>{
+router.put('/blogs/:id',isAuthorized,(req,res)=>{
     Blog.findByIdAndUpdate(req.params.id,req.body.blog,(err,updateBlog)=>{
         if(err){
             console.log(err);
@@ -73,14 +73,34 @@ router.put('/blogs/:id',Isloggedin,(req,res)=>{
 })
 
 //DELETE ROUTE
-router.delete('/blogs/:id',Isloggedin,(req,res)=>{
+router.delete('/blogs/:id',isAuthorized,(req,res)=>{
     Blog.findByIdAndRemove(req.params.id,(err,deletedBlog)=>{
         req.flash('error','Blog is deleted ..')
         res.redirect('/blogs');
     })
 })
-
-//MIDDLEWARE
+//MIDDLEWARE TO CHECK IF THE USER OWNS THE CURRENT BLOG
+function isAuthorized(req,res,next){
+    if(req.isAuthenticated()){
+        Blog.findById(req.params.id,(err,foundBlog)=>{
+            if(err){
+                
+                res.redirect("back");
+            }else{
+                if(foundBlog.Author.id.equals(req.user._id)){
+                 next();
+                }else{
+                    req.flash("error","you dont have permission to do that");
+                    res.redirect("back");
+                }
+            }
+        });
+    }else{
+        req.flash("error","you need to log in");
+        res.redirect("back")
+    }
+}
+//MIDDLEWARE TO CHECK IF THE USER IS LOGGED IN
 function Isloggedin(req,res,next){
     if(req.isAuthenticated()){
         return next();
