@@ -24,8 +24,19 @@
             <li class="nav-item active">
               <a class="nav-link" href="/blogs/new">New Blog</a>
             </li>
-            
-           
+            <% if(!currentUser){ %>
+            <li class="nav-item active">
+              <a class="nav-link" href="/login">Log In</a>
+            </li>
+          <% } else {%>
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Welcome..<%= currentUser.username %></a>
+              </li>
+            <li class="nav-item active">
+              
+              <a class="nav-link" href="/logout">Logout</a>
+            </li>
+            <% } %>
           </ul>
         </div>
       </nav>

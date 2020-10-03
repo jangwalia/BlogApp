@@ -1,4 +1,4 @@
-<%- include('partials/header') -%>
+<%- include('../partials/header') -%>
 <h1>Edit ...<%= blog.Title %> ...Blog</h1>
 <div class="container newForm">
     <form action = "/blogs/<%= blog._id %>?_method=PUT" method = "POST">
@@ -20,4 +20,4 @@
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
 </div>
-<%- include('partials/footer') -%>
+<%- include('../partials/footer') -%>
